@@ -4,13 +4,13 @@ const excel = require('excel4node');
 
 let query = [];
 
-fs.readdir('vkData/', function(err, filenames) {
+fs.readdir('json/', function(err, filenames) {
     if (err) {
         throw(err);
     }
 
     filenames.forEach(function(filename) {
-        fs.readFile('vkData/' + filename, function(err, html) {
+        fs.readFile('json/' + filename, function(err, html) {
             if (err) {
                 throw err;
             }

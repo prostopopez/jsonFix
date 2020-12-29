@@ -1,5 +1,5 @@
-# vkDataToExcel
-<p align="center">VK messages Data to Excel File with Node Example</p>
+# json Fix
+<p align="center">json replace name by Id</p>
 
 ## Installation
 ```bash
@@ -8,7 +8,7 @@ $ yarn
 
 ## Script Usage
 ```bash
-# firstly, upload the html files of your messages to /vkData
+# firstly, upload the json files to /json
 
 # nodemon startup
 $ yarn server

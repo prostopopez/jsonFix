@@ -1,8 +1,8 @@
 {
-  "name": "vkDataToExcel",
+  "name": "jsonFix",
   "version": "1.0.0",
   "main": "parser.js",
-  "repository": "https://github.com/prostopopez/vkDataToExcel.git",
+  "repository": "https://github.com/prostopopez/jsonFix.git",
   "author": "prostopopez",
   "license": "MIT",
   "scripts": {
