@@ -40,39 +40,65 @@ fs.readFile('json/productsFormat.json', 'utf8', function (err, data) {
             if (product.brands === brand.name) {
                 product.brands = brand._id;
             } else if (product.brands === 'NULL') {
-                delete product.brands;
+                product.brands = null;
             }
         });
     });
 
     objProducts.map(product => {
-        product['img'] = [
-            {
+        product.price = parseFloat(product.price.toString());
+
+        if (product['images/0/small'] !== '') {
+            product['img'] = [{
                 small: product['images/0/small'],
                 medium: product['images/0/medium'],
                 large: product['images/0/large']
-            },
-            {
-                small: product['images/1/small'],
-                medium: product['images/1/medium'],
-                large: product['images/1/large']
-            },
-            {
-                small: product['images/2/small'],
-                medium: product['images/2/medium'],
-                large: product['images/2/large']
-            },
-            {
-                small: product['images/3/small'],
-                medium: product['images/3/medium'],
-                large: product['images/3/large']
-            },
-            {
-                small: product['images/4/small'],
-                medium: product['images/4/medium'],
-                large: product['images/4/large']
-            }
-        ];
+            }];
+        }
+
+        if (product['images/1/small'] !== '') {
+            product['img'].push(
+                {
+                    small: product['images/1/small'],
+                    medium: product['images/1/medium'],
+                    large: product['images/1/large']
+                }
+            );
+        }
+
+        if (product['images/2/small'] !== '') {
+            product['img'].push(
+                {
+                    small: product['images/2/small'],
+                    medium: product['images/2/medium'],
+                    large: product['images/2/large']
+                }
+            );
+        }
+
+        if (product['images/3/small'] !== '') {
+            product['img'].push(
+                {
+                    small: product['images/3/small'],
+                    medium: product['images/3/medium'],
+                    large: product['images/3/large']
+                }
+            );
+        }
+
+        if (product['images/4/small'] !== '') {
+            product['img'].push(
+                {
+                    small: product['images/4/small'],
+                    medium: product['images/4/medium'],
+                    large: product['images/4/large']
+                }
+            );
+        }
+
+        product.isHit = false;
+        product.isView = true;
+        product.date = new Date('2020-08-21T02:42:44.809+00:00');
 
         delete product['images/0/small'];
         delete product['images/0/medium'];
