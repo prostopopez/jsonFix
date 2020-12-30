@@ -31,6 +31,8 @@ fs.readFile('json/productsFormat.json', 'utf8', function (err, data) {
         objProducts.map(product => {
             if (product.categories === category.name) {
                 product.categories = category._id;
+            } else if (product.categories === 'NULL') {
+                product.categories = null;
             }
         });
     });
@@ -46,15 +48,13 @@ fs.readFile('json/productsFormat.json', 'utf8', function (err, data) {
     });
 
     objProducts.map(product => {
-        product.price = parseFloat(product.price.toString());
+        product.price = product.price.toString();
 
-        if (product['images/0/small'] !== '') {
-            product['img'] = [{
-                small: product['images/0/small'],
-                medium: product['images/0/medium'],
-                large: product['images/0/large']
-            }];
-        }
+        product['img'] = [{
+            small: product['images/0/small'],
+            medium: product['images/0/medium'],
+            large: product['images/0/large']
+        }];
 
         if (product['images/1/small'] !== '') {
             product['img'].push(
